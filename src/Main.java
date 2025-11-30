@@ -1,7 +1,14 @@
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
-    public static void main(String[] args) {
+
+  private static final String O365GROUP = "unified";
+
+  public static void main(String[] args) {
         //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
         // to see how IntelliJ IDEA suggests fixing it.
         System.out.printf("Hello and welcome!");
@@ -11,5 +18,12 @@ public class Main {
             // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
             System.out.println("i = " + i);
         }
-    }
+    System.out.println(isValidGroup());
+  }
+
+  private static boolean isValidGroup() {
+    List<String> graphGroupTypes = new ArrayList<>(Arrays.asList("unified1", "Unified"));
+    return graphGroupTypes.stream()
+        .anyMatch(groupType -> groupType.equalsIgnoreCase(O365GROUP));
+  }
 }
